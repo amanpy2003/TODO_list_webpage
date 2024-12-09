@@ -1,0 +1,13 @@
+
+.navbar {
+    height: 100px; /* Adjust height as needed */
+    padding: 1.5rem; /* Adjust padding for inner spacing */
+}
+.navbar-brand {
+    font-size: 3.5rem; /* Increase brand size */
+    color: rgb(13, 216, 74);
+}
+.navbar-nav .nav-link {
+    font-size: 1.6rem; /* Increase link size */
+}
+

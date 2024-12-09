@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block body %}
+
+
+<div class="container">
+    <h2 class="m-4">Add Activity</h2>
+    <form class="m-4" method="POST">
+        <div class="mb-3">
+            <label for="to_do" class="form-label">Activity Name</label>
+            <input name="title" type="text" class="form-control" id="to_do">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input name="desc" type="text" class="form-control" id="to_do">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% if allTodo|length == 0 %}
+    <div class="alert alert-light text-center" role="alert">
+        No activity to show. Please add some!
+    </div>
+    {% else %}
+    <h2 class="m-4">Activity List</h2>
+    <table class="table me-auto m-4 table-striped">
+        <thead>
+            <tr>
+                <th scope="col">S_No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Time</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in allTodo %}
+
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{todo.title}}</td>
+                <td>{{todo.desc}}</td>
+                <td>{{todo.date_created.strftime('%H:%M %d-%m-%Y')}}</td>
+                <td>
+                    <a name="edit" href="/edit/{{todo.sno}}" class="btn btn-outline-primary btn-sm mx-1">Edit</button>
+                        <a name="delete" href="/delete/{{todo.sno}}"
+                            class="btn btn-outline-primary btn-sm mx-1">Delete</button>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</div>
+
+{% endblock body %}

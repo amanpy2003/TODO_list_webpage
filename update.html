@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock title %}
+{% block body %}
+
+
+<div class="container">
+    <h2 class="m-4">Add Activity</h2>
+    <form class="m-4" method="POST">
+        <div class="mb-3">
+            <label for="to_do" class="form-label">Activity Name</label>
+            <input name="title" value="{{todo.title}}" type="text" class="form-control" id="to_do">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input name="desc" value="{{todo.desc}}" type="text" class="form-control" id="to_do">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+{% endblock body %}
